@@ -213,11 +213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NickD\\OneDrive\\Desktop\\TicketingApp\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\TicketingApp\\API\\API.csproj",
+      "projectPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\API\\API.csproj",
       "packagesPath": "C:\\Users\\NickD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\TicketingApp\\API\\obj\\",
+      "outputPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NickD\\AppData\\Roaming\\NuGet\\NuGet.Config",

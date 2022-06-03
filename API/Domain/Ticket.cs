@@ -12,6 +12,8 @@ namespace API.Domain
         public int ticket_type { get; set; }
         public TicketType TicketType { get; set; }
         
+         public int resolution_type { get; set; }
+        public TicketResolutionType? TicketResolutionType { get; set; }
         public int ticket_status { get; set; }
         public TicketStatus TicketStatus { get; set; }
 
@@ -23,7 +25,7 @@ namespace API.Domain
         public DateTime assigned_date { get; set; }
         public int resolved_by { get; set; }
         public DateTime resolved_date { get; set; }
-        public int resolution_type { get; set; }
         public string resolution_note { get; set; }
+        public ICollection<TicketNote> TicketNotes { get; set; }
     }
 }

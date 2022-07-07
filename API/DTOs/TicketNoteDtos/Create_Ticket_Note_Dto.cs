@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace API.DTOs.TicketNoteDtos
+{
+    public class Create_Ticket_Note_Dto : ITicket_Note_Dto
+    {
+        public int ticket_id { get; set; }
+        //public int created_by { get; set; }
+        public string note_text { get; set; }
+        public bool is_history_note { get; set; }
+        public bool is_internal { get; set; }
+    }
+}

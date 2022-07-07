@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CR4dl8TXCc9SvL9QfhQg9B2b8460Ti3i1oHxdQgFRwz0Eltvfc+icCD8Oek9EmRJmWz/VDYinK5Lx0IG4EbFQA==",
+  "dgSpecHash": "N8MCU4/+ie2Lte74RohJFYT6sosUPcpywCb4rX92wUOdP0d7QKXLpSVpuHKfRN11DUJIiPQCyGIE6qiBChVwnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\NickD\\Repos\\TicketApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NickD\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\NickD\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

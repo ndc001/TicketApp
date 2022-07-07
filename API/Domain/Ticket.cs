@@ -8,24 +8,16 @@ namespace API.Domain
     public class Ticket
     {
         public int ticket_id { get; set; }
-
-        public int ticket_type { get; set; }
-        public TicketType TicketType { get; set; }
-        
-         public int resolution_type { get; set; }
-        public TicketResolutionType? TicketResolutionType { get; set; }
-        public int ticket_status { get; set; }
-        public TicketStatus TicketStatus { get; set; }
-
+        public Ticket_Type ticket_type { get; set; }
+        public Ticket_Resolution_Type? ticket_resolution_type { get; set; }
+        public Ticket_Status ticket_status { get; set; }
         public DateTime created_date { get; set; }
-        public int created_by { get; set; }
-        public string title { get; set; }
-        public string ticket_description { get; set; }
-        public int assigned_to { get; set; }
-        public DateTime assigned_date { get; set; }
-        public int resolved_by { get; set; }
-        public DateTime resolved_date { get; set; }
-        public string resolution_note { get; set; }
-        public ICollection<TicketNote> TicketNotes { get; set; }
+        public string? title { get; set; }
+        public string? ticket_description { get; set; }       
+        public DateTime? assigned_date { get; set; }        
+        public DateTime? resolved_date { get; set; }
+        public string? resolution_note { get; set; }
+        public virtual ICollection<Ticket_Note>? ticket_notes { get; set; }
+
     }
 }

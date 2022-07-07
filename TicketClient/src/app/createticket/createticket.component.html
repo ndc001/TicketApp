@@ -1,0 +1,28 @@
+<body class="d-flex" style="width: 100%;">
+    <div class="col"></div>
+    <form #loginForm="ngForm" (ngSubmit)="Maketicket()" autocomplete="off" class="col-2 text-center my-5 card" style="min-width:300px;">
+        <h1 class="card-header">Create Ticket</h1>
+        <div class="card-body">
+            <div class="form-floating">
+                <input name="title" [(ngModel)]="model.title" class="mt-2 form-control" id="title" type="email" placeholder="Title">
+                <label for="title">Title</label>
+            </div>
+            <div class="form-floating">
+                <input name="ticket_description" [(ngModel)]="model.ticket_description" class="mt-3 form-control" id="ticket_description" type="text" placeholder="Description">
+                <label for="ticket_description">Description</label>
+            </div>
+            <div class="form-floating">
+                
+                <select name="ticket_type" [(ngModel)]="model.ticket_type" class="mt-3 form-control" id="ticket_type">
+                                
+                <option *ngFor="let type of types">{{type}}</option>
+            </select>
+            <label for="ticket_type">Type</label>
+            </div>
+            <div class="my-4">
+                <button type="submit" class="btn btn-primary" style="min-width:150px;">Create</button>
+            </div>
+        </div>
+    </form>
+    <div class="col"></div>
+</body>

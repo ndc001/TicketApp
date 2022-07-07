@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\API.csproj": {}
+    "C:\\Users\\NickD\\Repos\\TicketApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\API.csproj": {
+    "C:\\Users\\NickD\\Repos\\TicketApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\NickD\\Repos\\TicketApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\API.csproj",
+        "projectPath": "C:\\Users\\NickD\\Repos\\TicketApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\NickD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NickD\\OneDrive\\Desktop\\New folder\\TicketApp-1\\API\\obj\\",
+        "outputPath": "C:\\Users\\NickD\\Repos\\TicketApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NickD\\AppData\\Roaming\\NuGet\\NuGet.Config",

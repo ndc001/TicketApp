@@ -6,6 +6,7 @@ using API.DTOs;
 using API.DTOs.TicketDtos;
 using API.Requests;
 using API.Requests.Commands;
+using API.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,13 @@ namespace API.Controllers
             return Ok(response);
         }
         
+        [HttpGet]
+        public async Task<ActionResult> Get_Tickets()
+        {
+            var query = new Get_Tickets_Query() {};
+            var response = await this.mediator.Send(query);
+            return Ok(response);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

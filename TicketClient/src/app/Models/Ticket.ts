@@ -8,7 +8,7 @@ export interface Ticket {
     ticket_description: string;
     ticket_type: Ticket_Type;    
     resolution_type: Resolution_Type;    
-    status: Ticket_Status;
+    ticket_status: Ticket_Status;
     resolution_note: string;
     assigned_date: Date;
     created_date: Date;

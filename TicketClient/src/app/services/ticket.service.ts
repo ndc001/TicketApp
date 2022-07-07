@@ -10,7 +10,7 @@ import { Ticket_Type } from "../Models/Ticket_Type";
 })
 export class TicketsService {
     baseUrl = environment.baseUrl + "Ticket";
-    
+    tickets: Ticket[] = [];
     
 
 
@@ -29,7 +29,14 @@ export class TicketsService {
 
     View_Tickets()
     {
-        
+        if(this.tickets.length > 0) return of(this.tickets);
+        return this.http.get<Ticket[]>(this.baseUrl).pipe(map(
+            tickets =>
+            {
+                this.tickets = tickets;
+                return tickets;
+            }
+        ))
     }
    
     

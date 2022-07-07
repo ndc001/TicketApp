@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Database.Repositories.Interfaces;
 using API.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Database.Repositories
 {
@@ -18,6 +19,11 @@ namespace API.Database.Repositories
         {
             await this.dbContext.AddAsync(ticket);
             return ticket;
+        }
+
+        public async Task<List<Ticket>> Get_Tickets()
+        {
+            return await this.dbContext.tickets.ToListAsync();
         }
 
       

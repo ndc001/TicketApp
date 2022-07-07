@@ -15,8 +15,10 @@ namespace API
         {
             CreateMap<Ticket, Create_Ticket_Dto>().ReverseMap(); 
             CreateMap<Ticket, Ticket_Dto>().ReverseMap();
+            CreateMap<Ticket, Get_Ticket_List_Dto>().ReverseMap();
             CreateMap<Ticket_Note, Create_Ticket_Note_Dto>().ReverseMap();
             CreateMap<Ticket_Note, Ticket_Note_Dto>().ReverseMap();
+            
                       
         }
     }

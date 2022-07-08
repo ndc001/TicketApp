@@ -41,6 +41,14 @@ namespace API.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get_Ticket_Details([FromRoute] int id)
+        {
+            var query = new Get_Ticket_Details_Query() {id = id};
+            var response = await this.mediator.Send(query);
+            return Ok(response);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

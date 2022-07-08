@@ -9,8 +9,9 @@ import { Ticket_Type } from "../Models/Ticket_Type";
     providedIn: 'root'
 })
 export class TicketsService {
-    baseUrl = environment.baseUrl + "Ticket";
+    baseUrl = environment.baseUrl + "Ticket/";
     tickets: Ticket[] = [];
+    //ticket: Ticket | undefined;
     
 
 
@@ -37,6 +38,14 @@ export class TicketsService {
                 return tickets;
             }
         ))
+    }
+
+    View_Ticket_Details(id: number)
+    {
+        const ticket = this.tickets.find(x => x.id === id);
+        if(ticket !== undefined) return of(ticket);
+        
+        return this.http.get<Ticket>(this.baseUrl + id);
     }
    
     

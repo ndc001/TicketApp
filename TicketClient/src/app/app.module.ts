@@ -10,7 +10,8 @@ import { CreateticketComponent } from './createticket/createticket.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FormsModule } from '@angular/forms';
-import { TicketlistComponent } from './ticketlist/ticketlist.component';
+import { TicketlistComponent } from './ticket_list/ticket_list.component';
+import { TicketDetailComponent } from './ticket_detail/ticket_detail.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TicketlistComponent } from './ticketlist/ticketlist.component';
     DashboardComponent,
     CreateticketComponent,
     PagenotfoundComponent,
-    TicketlistComponent
+    TicketlistComponent,
+    TicketDetailComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, NgbModule, AppRoutingModule, FormsModule

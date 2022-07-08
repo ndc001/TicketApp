@@ -26,6 +26,11 @@ namespace API.Database.Repositories
             return await this.dbContext.tickets.ToListAsync();
         }
 
+        public async Task<Ticket> Get_Ticket_Details(int id)
+        {
+            return await this.dbContext.tickets.FirstOrDefaultAsync(x => x.ticket_id == id);
+        }
+
       
     }
 }

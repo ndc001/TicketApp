@@ -4,14 +4,17 @@ import { CreateticketComponent } from "./createticket/createticket.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./login/login.component";
 import { PagenotfoundComponent } from "./pagenotfound/pagenotfound.component";
-import { TicketlistComponent } from "./ticketlist/ticketlist.component";
+import { TicketDetailComponent } from "./ticket_detail/ticket_detail.component";
+import { TicketlistComponent } from "./ticket_list/ticket_list.component";
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'createticket', component: CreateticketComponent },
-    { path: 'ticketlist', component: TicketlistComponent},
-    { path: '**', component: PagenotfoundComponent }
+    { path: 'ticket_list', component: TicketlistComponent},
+    { path: 'ticket_detail/:id', component: TicketDetailComponent},
+    { path: '**', component: PagenotfoundComponent },
+    
 ];
 
 @NgModule({

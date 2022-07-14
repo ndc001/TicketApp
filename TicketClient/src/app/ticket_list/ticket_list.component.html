@@ -1,8 +1,10 @@
 <div class="row">
     <div *ngFor="let ticket of tickets$ | async" class="col-2">
+        <p>{{ticket.ticket_id}}</p>
         <p>{{ticket.title}}</p>
         <p>{{ticket.ticket_type}}</p>
         <p>{{ticket.ticket_status}}</p>
         <p>{{ticket.created_date}}</p>
+        <button class="btn btn-primary button" (click)="go_to_page(ticket.ticket_id)">Details</button>
     </div>
 </div>

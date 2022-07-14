@@ -3,7 +3,7 @@ import { Resolution_Type } from "./Resolution_Type";
 import { Ticket_Status } from "./Status";
 
 export interface Ticket {
-    id: number;
+    ticket_id: number;
     title: string;
     ticket_description: string;
     ticket_type: Ticket_Type;    

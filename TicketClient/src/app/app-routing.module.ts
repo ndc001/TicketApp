@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'createticket', component: CreateticketComponent },
     { path: 'ticket_list', component: TicketlistComponent},
-    { path: 'ticket_detail/:id', component: TicketDetailComponent},
+    { path: 'ticket_detail', component: TicketDetailComponent},
     { path: '**', component: PagenotfoundComponent },
     
 ];

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
    // [Authorize]
     public class TicketController : Controller
@@ -25,15 +25,28 @@ namespace API.Controllers
             this.mediator = mediator;
 
         }
+
+
         [HttpPost]
+        [Route("CreateTicket")]
         public async Task<ActionResult<Base_Command_Response>> Post([FromBody] Create_Ticket_Dto create_ticket_dto)
         {
             var command = new Create_Ticket_Command { ticket_dto = create_ticket_dto };
             var response = await this.mediator.Send(command);
             return Ok(response);
         }
+
+        // [HttpPost]
+        // [Route("DeleteTicket")]
+        // public async Task<ActionResult<Base_Command_Response>> Delete_Ticket([FromBody] Delete_Ticket_Dto delete_ticket_dto)
+        // {
+        //     var command = new Delete_Ticket_Command { ticket_dto = delete_ticket_dto};
+        //     var response = await this.mediator.Send(command);
+        //     return Ok(response);
+        // }
         
         [HttpGet]
+        [Route("GetTickets")]
         public async Task<ActionResult> Get_Tickets()
         {
             var query = new Get_Tickets_Query() {};
@@ -41,8 +54,9 @@ namespace API.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> Get_Ticket_Details([FromRoute] int id)
+        [HttpGet]
+        [Route("GetTicket")]        
+        public async Task<ActionResult> Get_Ticket_Details([FromQuery(Name = "id")] int id)
         {
             var query = new Get_Ticket_Details_Query() {id = id};
             var response = await this.mediator.Send(query);

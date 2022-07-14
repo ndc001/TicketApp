@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, of } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -9,9 +9,9 @@ import { Ticket_Type } from "../Models/Ticket_Type";
     providedIn: 'root'
 })
 export class TicketsService {
-    baseUrl = environment.baseUrl + "Ticket/";
+    baseUrl = environment.baseUrl;
     tickets: Ticket[] = [];
-    //ticket: Ticket | undefined;
+    ticket: Ticket | undefined;
     
 
 
@@ -19,7 +19,7 @@ export class TicketsService {
 
     createticket(ticket: any)
     {
-        return this.http.post<Ticket>(this.baseUrl, ticket);
+        return this.http.post<Ticket>(this.baseUrl + "CreateTicket", ticket);
     }
 
     Get_Ticket_Types()
@@ -31,7 +31,7 @@ export class TicketsService {
     View_Tickets()
     {
         if(this.tickets.length > 0) return of(this.tickets);
-        return this.http.get<Ticket[]>(this.baseUrl).pipe(map(
+        return this.http.get<Ticket[]>(this.baseUrl + "GetTickets").pipe(map(
             tickets =>
             {
                 this.tickets = tickets;
@@ -42,10 +42,12 @@ export class TicketsService {
 
     View_Ticket_Details(id: number)
     {
-        const ticket = this.tickets.find(x => x.id === id);
+        const ticket = this.tickets.find(x => x.ticket_id === id);
         if(ticket !== undefined) return of(ticket);
         
-        return this.http.get<Ticket>(this.baseUrl + id);
+        let queryParams = new HttpParams().append("id", id)
+        return this.http.get<Ticket>(this.baseUrl + "GetTicket", {params:queryParams});
+            
     }
    
     

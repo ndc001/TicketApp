@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.DTOs.TicketDtos;
+using API.DTOs.TicketNoteDtos;
 using API.Requests;
 using API.Requests.Commands;
 using API.Requests.Queries;
@@ -23,9 +24,7 @@ namespace API.Controllers
         public TicketController(IMediator mediator)
         {
             this.mediator = mediator;
-
         }
-
 
         [HttpPost]
         [Route("CreateTicket")]
@@ -36,14 +35,23 @@ namespace API.Controllers
             return Ok(response);
         }
 
-        // [HttpPost]
-        // [Route("DeleteTicket")]
-        // public async Task<ActionResult<Base_Command_Response>> Delete_Ticket([FromBody] Delete_Ticket_Dto delete_ticket_dto)
-        // {
-        //     var command = new Delete_Ticket_Command { ticket_dto = delete_ticket_dto};
-        //     var response = await this.mediator.Send(command);
-        //     return Ok(response);
-        // }
+        [HttpPost]
+        [Route("CreateTicketNote")]
+        public async Task<ActionResult<Create_Ticket_Note_Command_Response>> Post([FromBody] Create_Ticket_Note_Dto create_note)
+        {
+            var command = new Create_Ticket_Note_Command {ticket_note_dto = create_note};
+            var response = await this.mediator.Send(command);
+            return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("DeleteTicket")]
+        public async Task<ActionResult<Base_Command_Response>> Delete_Ticket([FromBody] Delete_Ticket_Dto delete_ticket_dto)
+        {
+            var command = new Delete_Ticket_Command { delete_ticket = delete_ticket_dto};
+            var response = await this.mediator.Send(command);
+            return Ok(response);
+        }
         
         [HttpGet]
         [Route("GetTickets")]

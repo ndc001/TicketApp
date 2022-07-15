@@ -38,10 +38,23 @@ namespace API.Requests.Commands
             {
                 var ticket = this.mapper.Map<Ticket>(command.ticket_dto);
                 
-               
-                
+
+                ticket.is_active = true;
                 ticket.created_date = DateTime.Now;
+                
+                
                 ticket = await this.unit_of_work.ticket_repository.Create_Ticket(ticket);
+                
+                var ticket_note = new Ticket_Note()
+                {
+                    created_date = DateTime.Now,
+                    is_history_note = true,
+                    is_internal = false,
+                    note_text = "Ticket Created.",
+                    ticket_id = ticket.ticket_id,
+                };
+                
+                await this.unit_of_work.ticket_note_repository.Create_Ticket_Note(ticket_note);
                 await this.unit_of_work.Save();
 
                 response.success = true;

@@ -13,7 +13,8 @@ namespace API.Domain
         public Ticket_Status ticket_status { get; set; }
         public DateTime created_date { get; set; }
         public string? title { get; set; }
-        public string? ticket_description { get; set; }       
+        public string? ticket_description { get; set; }    
+        public bool is_active { get; set; }   
         public DateTime? assigned_date { get; set; }        
         public DateTime? resolved_date { get; set; }
         public string? resolution_note { get; set; }

@@ -31,6 +31,15 @@ namespace API.Database.Repositories
             return await this.dbContext.tickets.FirstOrDefaultAsync(x => x.ticket_id == id);
         }
 
+        public async Task Delete_Ticket(Ticket ticket)
+        {
+            
+            ticket.is_active = false;
+            this.dbContext.Entry(ticket).State = EntityState.Modified;
+           
+             
+        }
+
       
     }
 }

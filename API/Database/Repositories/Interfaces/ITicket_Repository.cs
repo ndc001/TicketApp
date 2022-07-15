@@ -12,5 +12,6 @@ namespace API.Database.Repositories.Interfaces
         Task<Ticket> Create_Ticket(Ticket ticket);
         Task<List<Ticket>> Get_Tickets();
         Task<Ticket> Get_Ticket_Details(int id);
+        Task Delete_Ticket(Ticket ticket);
     }
 }

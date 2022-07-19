@@ -106,5 +106,7 @@
       }
     }
   },
-  "defaultProject": "TicketClient"
+  "cli": {
+    "analytics": false
+  }
 }

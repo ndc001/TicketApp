@@ -15,29 +15,15 @@ namespace API.Database.Repositories
         {
             this.dbContext = dbContext;
         }
-        public async Task<Ticket> Create_Ticket(Ticket ticket)
-        {
-            await this.dbContext.AddAsync(ticket);
-            return ticket;
-        }
+       
 
-        public async Task<List<Ticket>> Get_Tickets()
-        {
-            return await this.dbContext.tickets.ToListAsync();
-        }
-
-        public async Task<Ticket> Get_Ticket_Details(int id)
-        {
-            return await this.dbContext.tickets.FirstOrDefaultAsync(x => x.ticket_id == id);
-        }
-
+        //We make sure that the whole ticket is not marked as dirty
+        //We only mark the is_active property to be updated in the database
+        //Head back to the Ticket_Repository to save changes
         public async Task Delete_Ticket(Ticket ticket)
-        {
-            
-            ticket.is_active = false;
-            this.dbContext.Entry(ticket).State = EntityState.Modified;
-           
-             
+        {            
+            this.dbContext.Attach(ticket);
+            this.dbContext.Entry(ticket).Property(x => x.is_active).IsModified = true;         
         }
 
       

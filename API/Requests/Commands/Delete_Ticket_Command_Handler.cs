@@ -36,7 +36,8 @@ namespace API.Requests.Commands
             }
             else
             {   
-                var ticket = await this.unit_of_work.ticket_repository.Get_Ticket_Details(command.delete_ticket.ticket_id);                
+                var ticket = await this.unit_of_work.ticket_repository.Get(command.delete_ticket.ticket_id);
+                ticket.is_active = false;                
                 await this.unit_of_work.ticket_repository.Delete_Ticket(ticket);
                 await this.unit_of_work.Save();
 

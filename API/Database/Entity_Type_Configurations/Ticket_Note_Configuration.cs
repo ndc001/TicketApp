@@ -10,6 +10,8 @@ namespace API.Database.EntityConfigurations
 {
     public class TicketNoteConfiguration : IEntityTypeConfiguration<Ticket_Note>
     {
+        //Entity Type Configuration is meant to put restrictions on database model properties
+        //A ticket can have many notes
         public void Configure(EntityTypeBuilder<Ticket_Note> builder)
         {
             

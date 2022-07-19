@@ -22,6 +22,13 @@ namespace API.Requests.Commands
             this.mapper = mapper;
         }
 
+        //Ticket information passed in from controller via command
+        //Create_Ticket_Dto_Validator is run
+        //If fails validation a list of errors is returned in the response
+        //If validation succeeds, maps command into a ticket variable
+        //Sets a couple default values
+        //Creates a history ticket_note
+        //Saves and sends the ticket back in response
         public async Task<Base_Command_Response> Handle(Create_Ticket_Command command, CancellationToken cancellationToken)
         {
             var response = new Create_Ticket_Command_Response();
@@ -41,9 +48,8 @@ namespace API.Requests.Commands
 
                 ticket.is_active = true;
                 ticket.created_date = DateTime.Now;
-                
-                
-                ticket = await this.unit_of_work.ticket_repository.Create_Ticket(ticket);
+                                
+                ticket = await this.unit_of_work.ticket_repository.Add(ticket);
                 
                 var ticket_note = new Ticket_Note()
                 {
@@ -53,8 +59,8 @@ namespace API.Requests.Commands
                     note_text = "Ticket Created.",
                     ticket_id = ticket.ticket_id,
                 };
-                
-                await this.unit_of_work.ticket_note_repository.Create_Ticket_Note(ticket_note);
+
+                await this.unit_of_work.ticket_note_repository.Add(ticket_note);
                 await this.unit_of_work.Save();
 
                 response.success = true;

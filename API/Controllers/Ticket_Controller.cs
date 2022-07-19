@@ -18,7 +18,11 @@ namespace API.Controllers
    // [Authorize]
     public class TicketController : Controller
     {
-        //private readonly ILogger<TicketController> _logger;
+        //Client sends request to one of the URLs listed below (Endpoint)
+        //Controller receives information FromBody, Query, etc.
+        //A command/query is created from the information and sent to a CommandHandler/QueryHandler via Mediator
+        //A response object is passed from the handler back to the controller to return to client
+
         private readonly IMediator mediator;
         
         public TicketController(IMediator mediator)
@@ -28,6 +32,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("CreateTicket")]
+        // /api/CreateTicket
         public async Task<ActionResult<Base_Command_Response>> Post([FromBody] Create_Ticket_Dto create_ticket_dto)
         {
             var command = new Create_Ticket_Command { ticket_dto = create_ticket_dto };
@@ -37,6 +42,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("CreateTicketNote")]
+        // /api/CreateTicketNote
         public async Task<ActionResult<Create_Ticket_Note_Command_Response>> Post([FromBody] Create_Ticket_Note_Dto create_note)
         {
             var command = new Create_Ticket_Note_Command {ticket_note_dto = create_note};
@@ -46,6 +52,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("DeleteTicket")]
+        // /api/DeleteTicket
         public async Task<ActionResult<Base_Command_Response>> Delete_Ticket([FromBody] Delete_Ticket_Dto delete_ticket_dto)
         {
             var command = new Delete_Ticket_Command { delete_ticket = delete_ticket_dto};
@@ -55,6 +62,7 @@ namespace API.Controllers
         
         [HttpGet]
         [Route("GetTickets")]
+        // /api/GetTickets
         public async Task<ActionResult> Get_Tickets()
         {
             var query = new Get_Tickets_Query() {};
@@ -64,6 +72,7 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("GetTicket")]        
+        // /api/GetTicket
         public async Task<ActionResult> Get_Ticket_Details([FromQuery(Name = "id")] int id)
         {
             var query = new Get_Ticket_Details_Query() {id = id};

@@ -9,6 +9,9 @@ namespace API.DTOs.TicketNoteDtos.Validator
 {
     public class Create_Ticket_Note_Dto_Validator : AbstractValidator<Create_Ticket_Note_Dto>
     {
+        //Unit Of Work Ticket_Repository is passed in via Create_Ticket_Note_Command_Handler
+        //Makes sure the note has text and is at maximum 500 characters
+        //Makes sure the ticket, that the note will be attached to, exists
         private ITicket_Repository ticket_repository;
         public Create_Ticket_Note_Dto_Validator(ITicket_Repository ticket_repository)
         {

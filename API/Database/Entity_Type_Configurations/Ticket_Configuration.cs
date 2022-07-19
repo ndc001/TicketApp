@@ -10,11 +10,15 @@ namespace API.Database.EntityConfigurations
 {
     public class Ticket_Configuration : IEntityTypeConfiguration<Ticket>
     {
+        //Entity Type Configuration is meant to put restrictions on database model properties
+        //A ticket can have many notes
+        //The default resolution type is none
+        //The default status is new
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {
             builder.ToTable("Ticket");
             builder.HasKey(x => x.ticket_id);
-           builder.HasMany(x => x.ticket_notes).WithOne(x => x.ticket); 
+            builder.HasMany(x => x.ticket_notes).WithOne(x => x.ticket); 
 
             builder.Property(x => x.ticket_resolution_type).HasDefaultValue(Ticket_Resolution_Type.none).IsRequired(false);
             builder.Property(x => x.ticket_status).HasDefaultValue(Ticket_Status.new_ticket);

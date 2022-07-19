@@ -8,10 +8,7 @@ namespace API.Database.Repositories.Interfaces
 {
     public interface ITicket_Repository : IGeneric_Repository<Ticket>
     {
-        
-        Task<Ticket> Create_Ticket(Ticket ticket);
-        Task<List<Ticket>> Get_Tickets();
-        Task<Ticket> Get_Ticket_Details(int id);
+        //Guarentees that our ticket repository will be able to delete tickets
         Task Delete_Ticket(Ticket ticket);
     }
 }

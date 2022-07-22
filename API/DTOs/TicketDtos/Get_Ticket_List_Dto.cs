@@ -10,6 +10,7 @@ namespace API.DTOs.TicketDtos
     {
         public int ticket_id { get; set; }
         public string title { get; set; }
+        public bool is_active { get; set; }   
         public Ticket_Type ticket_type { get; set;}
         public Ticket_Status ticket_status { get; set; }
         public DateTime created_date { get; set; }

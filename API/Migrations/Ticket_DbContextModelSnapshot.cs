@@ -36,6 +36,11 @@ namespace API.Migrations
                     b.Property<DateTime>("created_date")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("is_active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.Property<string>("resolution_note")
                         .HasColumnType("nvarchar(max)");
 
@@ -76,6 +81,9 @@ namespace API.Migrations
 
                     b.Property<DateTime>("created_date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("fk_ticket_id")
+                        .HasColumnType("int");
 
                     b.Property<bool>("is_history_note")
                         .HasColumnType("bit");

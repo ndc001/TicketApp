@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(Ticket_DbContext))]
-    [Migration("20220706101827_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220720090638_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,11 @@ namespace API.Migrations
 
                     b.Property<DateTime>("created_date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("is_active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("resolution_note")
                         .HasColumnType("nvarchar(max)");
@@ -78,6 +83,9 @@ namespace API.Migrations
 
                     b.Property<DateTime>("created_date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("fk_ticket_id")
+                        .HasColumnType("int");
 
                     b.Property<bool>("is_history_note")
                         .HasColumnType("bit");

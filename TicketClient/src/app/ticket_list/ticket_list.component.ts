@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Ticket } from '../Models/Ticket';
 import { TicketsService } from '../services/ticket.service';
@@ -21,5 +22,11 @@ tickets$: Observable<Ticket[]> | undefined;
   go_to_page(id: number)
   {
     this.router.navigate(['/ticket_detail'], { queryParams: { id: id }});
+  }
+
+  delete(id: number)
+  {
+    this.ticket_service.Delete_Ticket(id);
+    this.ticket_service.View_Tickets();
   }
 }

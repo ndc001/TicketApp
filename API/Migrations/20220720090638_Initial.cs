@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,7 @@ namespace API.Migrations
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ticket_description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    is_active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     assigned_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     resolved_date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     resolution_note = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -36,11 +37,12 @@ namespace API.Migrations
                 {
                     ticket_note_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ticket_id = table.Column<int>(type: "int", nullable: false),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     note_text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     is_history_note = table.Column<bool>(type: "bit", nullable: false),
-                    is_internal = table.Column<bool>(type: "bit", nullable: false)
+                    is_internal = table.Column<bool>(type: "bit", nullable: false),
+                    fk_ticket_id = table.Column<int>(type: "int", nullable: false),
+                    ticket_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

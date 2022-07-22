@@ -33,10 +33,15 @@ namespace API.Controllers
         [HttpPost]
         [Route("CreateTicket")]
         // /api/CreateTicket
-        public async Task<ActionResult<Base_Command_Response>> Post([FromBody] Create_Ticket_Dto create_ticket_dto)
+        public async Task<ActionResult<Create_Ticket_Command_Response>> Post([FromBody] Create_Ticket_Dto create_ticket_dto)
         {
             var command = new Create_Ticket_Command { ticket_dto = create_ticket_dto };
             var response = await this.mediator.Send(command);
+
+            var note = response.note_response;
+            var note_command = new Create_Ticket_Note_Command { ticket_note_dto = note};
+            await this.mediator.Send(note_command);
+
             return Ok(response);
         }
 

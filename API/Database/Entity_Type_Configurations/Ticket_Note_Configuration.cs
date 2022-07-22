@@ -16,9 +16,9 @@ namespace API.Database.EntityConfigurations
         {
             
             builder.ToTable("TicketNote");
-            builder.HasKey(x => x.ticket_note_id);
-            builder.HasOne(x => x.ticket).WithMany(x => x.ticket_notes).HasForeignKey(x => x.ticket_id);
-            
+            builder.HasKey(n => n.ticket_note_id);
+            builder.HasOne(n => n.ticket).WithMany(t => t.ticket_notes);
+        
         }
     }
 }

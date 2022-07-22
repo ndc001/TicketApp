@@ -6,6 +6,6 @@
         <p>{{ticket.ticket_status}}</p>
         <p>{{ticket.created_date}}</p>
         <button class="btn btn-primary button" (click)="go_to_page(ticket.ticket_id)">Details</button>
-        <button class="btn btn-danger button">Delete</button>
+        <button class="btn btn-danger button" (click)="delete(ticket.ticket_id)">Delete</button>
     </div>
 </div>

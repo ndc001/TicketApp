@@ -42,9 +42,9 @@ namespace API.Requests.Commands
 
 
                 ticket_note.created_date = DateTime.Now;
-                // ticket_note.is_history_note = command.ticket_note_dto.is_history_note;
-                // ticket_note.is_internal = command.ticket_note_dto.is_history_note;
-                // ticket_note.note_text = command.ticket_note_dto.note_text;
+                ticket_note.is_history_note = command.ticket_note_dto.is_history_note;
+                ticket_note.is_internal = command.ticket_note_dto.is_history_note;
+                ticket_note.note_text = command.ticket_note_dto.note_text;
                            
             
                 await this.unit_of_work.ticket_note_repository.Add(ticket_note);

@@ -6,12 +6,13 @@ using API.Database.Repositories.Interfaces;
 using API.Domain;
 using API.DTOs.TicketDtos;
 using API.DTOs.TicketDtos.Validator;
+using API.DTOs.TicketNoteDtos;
 using AutoMapper;
 using MediatR;
 
 namespace API.Requests.Commands
 {
-    public class Create_Ticket_Command_Handler : IRequestHandler<Create_Ticket_Command, Base_Command_Response>
+    public class Create_Ticket_Command_Handler : IRequestHandler<Create_Ticket_Command, Create_Ticket_Command_Response>
     {
         private readonly IUnit_Of_Work unit_of_work;
         private readonly IMapper mapper;
@@ -29,7 +30,7 @@ namespace API.Requests.Commands
         //Sets a couple default values
         //Creates a history ticket_note
         //Saves and sends the ticket back in response
-        public async Task<Base_Command_Response> Handle(Create_Ticket_Command command, CancellationToken cancellationToken)
+        public async Task<Create_Ticket_Command_Response> Handle(Create_Ticket_Command command, CancellationToken cancellationToken)
         {
             var response = new Create_Ticket_Command_Response();
             var validator = new Create_Ticket_Dto_Validator();
@@ -43,30 +44,30 @@ namespace API.Requests.Commands
             }
             else
             {
-                var ticket = this.mapper.Map<Ticket>(command.ticket_dto);
-                
+                var ticket = this.mapper.Map<Ticket>(command.ticket_dto);               
 
                 ticket.is_active = true;
                 ticket.created_date = DateTime.Now;
                                 
                 ticket = await this.unit_of_work.ticket_repository.Add(ticket);
                 
-                var ticket_note = new Ticket_Note()
+                var note = new Ticket_Note()
                 {
                     created_date = DateTime.Now,
                     is_history_note = true,
                     is_internal = false,
                     note_text = "Ticket Created.",
-                    ticket_id = ticket.ticket_id,
+
                 };
 
-                await this.unit_of_work.ticket_note_repository.Add(ticket_note);
+                
                 await this.unit_of_work.Save();
 
                 response.success = true;
                 response.message = "Ticket Created.";
                 response.id = ticket.ticket_id;
                 response.ticket_response = this.mapper.Map<Ticket_Dto>(ticket);
+                response.note_response = this.mapper.Map<Create_Ticket_Note_Dto>(note);
             }
 
             return response;

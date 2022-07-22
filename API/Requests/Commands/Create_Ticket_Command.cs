@@ -8,7 +8,7 @@ using MediatR;
 
 namespace API.Requests.Commands
 {
-    public class Create_Ticket_Command : IRequest<Base_Command_Response>
+    public class Create_Ticket_Command : IRequest<Create_Ticket_Command_Response>
     {
         public Create_Ticket_Dto ticket_dto { get; set; }
     }

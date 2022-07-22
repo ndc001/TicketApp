@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Domain;
 using API.DTOs.TicketDtos;
+using API.DTOs.TicketNoteDtos;
 using API.Requests;
 
 namespace API
@@ -11,5 +12,6 @@ namespace API
     public class Create_Ticket_Command_Response : Base_Command_Response
     {
         public Ticket_Dto ticket_response { get; set; }
+        public Create_Ticket_Note_Dto note_response { get; set; }
     }
 }

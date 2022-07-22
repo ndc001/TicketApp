@@ -12,6 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FormsModule } from '@angular/forms';
 import { TicketlistComponent } from './ticket_list/ticket_list.component';
 import { TicketDetailComponent } from './ticket_detail/ticket_detail.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,10 +23,15 @@ import { TicketDetailComponent } from './ticket_detail/ticket_detail.component';
     CreateticketComponent,
     PagenotfoundComponent,
     TicketlistComponent,
-    TicketDetailComponent
+    TicketDetailComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule, NgbModule, AppRoutingModule, FormsModule
+    BrowserModule, 
+    HttpClientModule,
+    NgbModule,
+    AppRoutingModule,
+    FormsModule,
+    ToastrModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

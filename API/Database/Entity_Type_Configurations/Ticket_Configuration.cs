@@ -18,10 +18,11 @@ namespace API.Database.EntityConfigurations
         {
             builder.ToTable("Ticket");
             builder.HasKey(x => x.ticket_id);
-            builder.HasMany(x => x.ticket_notes).WithOne(x => x.ticket); 
+            builder.HasMany(t => t.ticket_notes).WithOne(n => n.ticket);
 
             builder.Property(x => x.ticket_resolution_type).HasDefaultValue(Ticket_Resolution_Type.none).IsRequired(false);
             builder.Property(x => x.ticket_status).HasDefaultValue(Ticket_Status.new_ticket);
+            builder.Property(x => x.is_active).HasDefaultValue(true);
             
             
             

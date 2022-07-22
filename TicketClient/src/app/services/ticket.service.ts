@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, of } from "rxjs";
+import { map, Observable, of } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Ticket } from "../Models/Ticket";
 import { Ticket_Type } from "../Models/Ticket_Type";
@@ -12,6 +12,7 @@ export class TicketsService {
     baseUrl = environment.baseUrl;
     tickets: Ticket[] = [];
     ticket: Ticket | undefined;
+    item: Object = {};
     
 
 
@@ -61,5 +62,5 @@ export class TicketsService {
         return this.http.post<Ticket>(this.baseUrl + "DeleteTicket", id);
     }
    
-    
+   
 }

@@ -13,5 +13,6 @@ export interface Ticket {
     assigned_date: Date;
     created_date: Date;
     resolved_date: Date;
+    is_active: boolean;
         
 }
